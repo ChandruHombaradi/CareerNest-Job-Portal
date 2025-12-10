@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}CareerNest - Register{% endblock %}
+
+{% block content %}
+<section class="card auth-card">
+  <h2>Join CareerNest</h2>
+  <form method="post">
+    <label>
+      Full Name
+      <input type="text" name="name" required placeholder="Your name">
+    </label>
+
+    <label>
+      Email
+      <input type="email" name="email" required placeholder="you@example.com">
+    </label>
+
+    <label>
+      Password
+      <input type="password" name="password" required>
+    </label>
+
+    <label>
+      I am a
+      <select name="role" required>
+        <option value="candidate">Candidate (looking for jobs)</option>
+        <option value="recruiter">Recruiter (posting jobs)</option>
+      </select>
+    </label>
+
+    <button type="submit">Create Account</button>
+
+    {% if error %}
+      <p class="error">{{ error }}</p>
+    {% endif %}
+    <p class="muted">
+      Already have an account? <a href="{{ url_for('login') }}">Login</a>
+    </p>
+  </form>
+</section>
+{% endblock %}

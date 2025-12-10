@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}CareerNest - Post a Job{% endblock %}
+
+{% block content %}
+<section class="card">
+  <h2>Post a New Job</h2>
+  <p class="muted">Logged in as {{ g.user.name }} ({{ g.user.role }})</p>
+
+  <form id="post-job-form">
+    <label>
+      Job Title *
+      <input type="text" id="job-title" required placeholder="Software Engineer">
+    </label>
+
+    <label>
+      Company *
+      <input type="text" id="job-company" required placeholder="CareerNest Tech Pvt Ltd">
+    </label>
+
+    <label>
+      Location
+      <input type="text" id="job-location" placeholder="Bangalore, Remote">
+    </label>
+
+    <label>
+      Job Type
+      <input type="text" id="job-type" placeholder="Full-time, Internship, Remote">
+    </label>
+
+    <label>
+      Salary (Optional)
+      <input type="text" id="job-salary" placeholder="₹5 LPA / 3-5 LPA">
+    </label>
+
+    <label>
+      Job Description
+      <textarea id="job-description" rows="5" placeholder="Roles, responsibilities, tech stack..."></textarea>
+    </label>
+
+    <button type="submit">Post Job</button>
+    <p id="post-job-message" class="muted"></p>
+  </form>
+</section>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}

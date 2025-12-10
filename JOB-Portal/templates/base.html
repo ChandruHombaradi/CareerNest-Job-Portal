@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}CareerNest - Job Portal{% endblock %}</title>
+
+  <!-- VERY IMPORTANT: CSS LINK -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container topbar-inner">
+    <div class="brand">
+      <span class="logo">CareerNest</span>
+      <span class="tagline">Find. Apply. Grow.</span>
+    </div>
+    <nav>
+  <a href="{{ url_for('index') }}">Jobs</a>
+
+  {% if g.user and g.user.role == 'candidate' %}
+    <a href="{{ url_for('my_applications') }}">My Applications</a>
+  {% endif %}
+
+  {% if g.user and g.user.role in ['recruiter', 'admin'] %}
+    <a href="{{ url_for('post_job_page') }}">Post a Job</a>
+    <a href="{{ url_for('recruiter_applications') }}">Applications for My Jobs</a>
+  {% endif %}
+
+  {% if g.user and g.user.role == 'admin' %}
+    <a href="{{ url_for('admin_page') }}">Admin</a>
+  {% endif %}
+
+  {% if g.user %}
+    <span class="nav-user">Hi, {{ g.user.name }} ({{ g.user.role }})</span>
+    <a href="{{ url_for('logout') }}">Logout</a>
+  {% else %}
+    <a href="{{ url_for('login') }}">Login</a>
+    <a href="{{ url_for('register') }}">Register</a>
+  {% endif %}
+</nav>
+
+  </div>
+</header>
+
+<main class="container">
+  {% block content %}{% endblock %}
+</main>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}CareerNest - Browse Jobs{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+  <div>
+    <h1>Discover your next role on CareerNest</h1>
+    <p>Search jobs posted by recruiters and apply in a few clicks.</p>
+  </div>
+</section>
+
+<section class="card">
+  <h3>Search Jobs</h3>
+  <div class="filters">
+    <input type="text" id="search-keyword" placeholder="Keyword (e.g. Python, Full Stack)">
+    <input type="text" id="search-location" placeholder="Location (e.g. Bangalore)">
+    <button id="btn-filter">Search</button>
+    <button id="btn-clear">Clear</button>
+  </div>
+</section>
+
+<section class="card">
+  <h3>Open Positions</h3>
+  <div id="jobs-container" class="jobs-grid"></div>
+  <p id="no-jobs" class="muted" style="display:none;">No jobs found.</p>
+</section>
+
+<!-- Apply Modal -->
+<div id="apply-modal" class="modal hidden">
+  <div class="modal-backdrop"></div>
+  <div class="modal-content">
+    <h3 id="apply-job-title">Apply for Job</h3>
+    <form id="apply-form">
+      <input type="hidden" id="apply-job-id">
+
+      <label>
+        Full Name
+        <input type="text" id="apply-name" required>
+      </label>
+
+      <label>
+        Email
+        <input type="email" id="apply-email" required>
+      </label>
+
+      <label>
+        Resume URL
+        <input type="url" id="apply-resume" placeholder="https://">
+      </label>
+
+      <label>
+        Cover Letter
+        <textarea id="apply-cover" rows="4" placeholder="Why are you a good fit?"></textarea>
+      </label>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" id="btn-cancel-apply">Cancel</button>
+        <button type="submit">Submit Application</button>
+      </div>
+      <p id="apply-message" class="muted"></p>
+    </form>
+  </div>
+</div>
+
+<!-- JS at bottom -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+{% endblock %}

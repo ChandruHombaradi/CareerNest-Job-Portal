@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Applications for My Jobs - CareerNest{% endblock %}
+
+{% block content %}
+<section class="card">
+  <h2>Applications for My Jobs</h2>
+  <p class="muted">These candidates applied to jobs posted by you ({{ g.user.email }}).</p>
+
+  {% if applications %}
+    <div class="table-wrapper">
+      <table>
+        <thead>
+        <tr>
+          <th>Candidate</th>
+          <th>Email</th>
+          <th>Job</th>
+          <th>Company</th>
+          <th>Location</th>
+          <th>Applied At</th>
+          <th>Resume</th>
+          <th>Cover Letter</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for a in applications %}
+          <tr>
+            <td>{{ a.name }}</td>
+            <td>{{ a.email }}</td>
+            <td>{{ a.job_title }}</td>
+            <td>{{ a.company }}</td>
+            <td>{{ a.location or '-' }}</td>
+            <td>{{ a.applied_at }}</td>
+            <td>
+              {% if a.resume_url %}
+                <a href="{{ a.resume_url }}" target="_blank">View</a>
+              {% else %}
+                -
+              {% endif %}
+            </td>
+            <td style="max-width:260px;">{{ a.cover_letter or '-' }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p class="muted">No one has applied to your jobs yet.</p>
+  {% endif %}
+</section>
+{% endblock %}
