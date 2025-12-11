@@ -4,32 +4,31 @@ CareerNest is a full-stack Job Portal built with Flask, SQLite, HTML, CSS, and J
 
 📌 Future Enhancements
 
-Applicant Resume Upload (instead of URL)
+    Applicant Resume Upload (instead of URL)
 
-Email notification to recruiters
+    Email notification to recruiters
 
-Recruiter dashboards & analytics
+    Recruiter dashboards & analytics
 
-Real-time chat between candidates and recruiters
+    Real-time chat between candidates and recruiters
 
-Pagination and sorting for job listings
+    Pagination and sorting for job listings
 
+🛠️Technologies Used 
 
-Technologies Used 
+    Python
 
-Python
+    Flask
 
-Flask
+    SQLite
 
-SQLite
+    HTML5
 
-HTML5
+    CSS3
 
-CSS3
+    JavaScript
 
-JavaScript
+    Jinja2 Templates
 
-Jinja2 Templates
-
-REST API
+    REST API
 
