@@ -14,9 +14,22 @@ Real-time chat between candidates and recruiters
 
 Pagination and sorting for job listings
 
-🤝 Contributing
 
-Pull requests are welcome!
+Technologies Used 
 
-Fork the repository → Make changes → Submit PR.
+Python
+
+Flask
+
+SQLite
+
+HTML5
+
+CSS3
+
+JavaScript
+
+Jinja2 Templates
+
+REST API
 
